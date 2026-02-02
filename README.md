@@ -1,13 +1,23 @@
 # wesm-price-prediction
 
-Download and extract the following files and put in their respective folders:
-- [Generator Weighted Average Price (Final)](https://www.iemop.ph/market-data/generator-weighted-average-price-final/?post=276299&sort=&page=1&start=2025-10-28%2000:00&end=2025-12-25%2023:59) -> Extract and put in raw_data/GWAP/
-- [RTD Regional Summaries](https://www.iemop.ph/market-data/rtd-regional-summaries/?post=5760&sort=&page=1&start=2025-10-28%2000:00&end=2025-12-25%2023:59) -> Extract and put in raw_data/RTD_Regional/
-- [Outage Schedules Used in RTD](https://www.iemop.ph/market-data/outage-schedules-used-in-rtd/?post=5764&sort=&page=1&start=2025-10-28%2000:00&end=2025-12-25%2023:59) -> Extract and put in raw_data/Outages/
+### Data Sources
+The project uses 4 months of WESM data (Oct 2025 - Jan 2026). Since the IEMOP website only hosts the latest 3 months, use the archived link below:
 
-Should look like this:
+1. **Download Full Dataset:** [Link to your GDrive ZIP]
+2. **Extract** and place CSVs into their respective folders:
+   - `raw_data/GWAP/`
+   - `raw_data/RTD_Regional/`
+   - `raw_data/Outages/`
 
+### Directory Structure
 ![alt text](image.png)
 
-[WESM Compliance Bulletin](https://www.wesm.ph/downloads/download/TWFya2V0IFJlcG9ydHM=/MjkxNg==)
-- Contains the plants used to determine which prefixes in the outage files are in Luzon (confirmed 1, 2, 3 prefixes)
+### Original Data Links (Latest 3 Months only):
+- [Generator Weighted Average Price (Final)](https://www.iemop.ph/market-data/generator-weighted-average-price-final/)
+- [RTD Regional Summaries](https://www.iemop.ph/market-data/rtd-regional-summaries/)
+- [Outage Schedules Used in RTD](https://www.iemop.ph/market-data/outage-schedules-used-in-rtd/)
+
+### Official Resources & Documentation
+- **Latest Market Data:** [IEMOP Market Data Dashboard](https://www.iemop.ph/market-data/)
+- **Technical Reference:** [WESM Price Determination Methodology (PDM)](https://www.wesm.ph/downloads/download/TWFya2V0IFJlcG9ydHM=/NTYw)
+- **Compliance & Rules:** [WESM Compliance Bulletin](https://www.wesm.ph/market-reports/compliance-bulletins/)
