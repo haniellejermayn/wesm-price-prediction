@@ -93,9 +93,6 @@ class NeuralNetwork(nn.Module):
                 print('Output of layer ' + str(i))
                 print(x, '\n')
 
-        # Apply the softmax function
-        #probabilities = self.layers[-1](x)
-
         output = self.layers[-1](x)
 
         if verbose:
@@ -103,9 +100,3 @@ class NeuralNetwork(nn.Module):
             print(output, '\n')
 
         return output
-
-    #  def predict(self,
-    #              probabilities):
-    #      """Returns the index of the class with the highest probability."""
-#  
-    #      return torch.argmax(probabilities, dim=1)
