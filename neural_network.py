@@ -7,7 +7,7 @@ class NeuralNetwork(nn.Module):
 
     def __init__(self,
                  input_size,
-                 num_classes,
+                 num_outputs,
                  list_hidden,
                  activation='relu'):
         
@@ -15,7 +15,7 @@ class NeuralNetwork(nn.Module):
         super(NeuralNetwork, self).__init__()
 
         self.input_size = input_size
-        self.num_classes = num_classes
+        self.num_outputs = num_outputs
         self.list_hidden = list_hidden
         self.activation = activation
 
@@ -38,11 +38,11 @@ class NeuralNetwork(nn.Module):
             layers.append(self.get_activation(self.activation))
 
         # last layer
-        layers.append(nn.Linear(self.list_hidden[-1], self.num_classes))
+        layers.append(nn.Linear(self.list_hidden[-1], self.num_outputs))
         
         #remove since we are doing regression
         # layers.append(nn.Softmax(dim=1))
-        
+
         self.layers = nn.Sequential(*layers)
 
     def init_weights(self):
@@ -76,45 +76,6 @@ class NeuralNetwork(nn.Module):
 
         return activation
 
-    def forward_manual(self,
-                       x,
-                       verbose=False):
-        """Forward propagation of the model, implemented manually."""
-
-        # For each layer in the network
-        for i in range(len(self.layers) - 1):
-
-            # If it is a torch.nn.Linear layer
-            if isinstance(self.layers[i], nn.Linear):
-
-                # TODO: Compute the result of the linear layer. Do not forget
-                # to add the bias term. Assign the result to x.
-                # HINT: Use torch.matmul() function.
-                weight = self.layers[i].weight
-                bias = self.layers[i].bias
-
-                x = torch.matmul(x, weight.t()) + bias
-
-            # If it is another function
-            else:
-                # Call the forward() function of the layer
-                # and return the result to x.
-                x = self.layers[i](x)
-
-            if verbose:
-                # Print the output of the layer
-                print('Output of layer ' + str(i))
-                print(x, '\n')
-
-        # Apply the softmax function
-        probabilities = self.layers[-1](x)
-
-        if verbose:
-            print('Output of layer ' + str(len(self.layers) - 1))
-            print(probabilities, '\n')
-
-        return x, probabilities
-
     def forward(self,
                 x,
                 verbose=False):
@@ -133,16 +94,18 @@ class NeuralNetwork(nn.Module):
                 print(x, '\n')
 
         # Apply the softmax function
-        probabilities = self.layers[-1](x)
+        #probabilities = self.layers[-1](x)
+
+        output = self.layers[-1](x)
 
         if verbose:
             print('Output of layer ' + str(len(self.layers) - 1))
-            print(probabilities, '\n')
+            print(output, '\n')
 
-        return x, probabilities
+        return output
 
-    def predict(self,
-                probabilities):
-        """Returns the index of the class with the highest probability."""
-
-        return torch.argmax(probabilities, dim=1)
+    #  def predict(self,
+    #              probabilities):
+    #      """Returns the index of the class with the highest probability."""
+#  
+    #      return torch.argmax(probabilities, dim=1)
