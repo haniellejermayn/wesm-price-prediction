@@ -211,3 +211,4 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 04_RidgeRegression.ipynb
+06_LSTM.ipynb
