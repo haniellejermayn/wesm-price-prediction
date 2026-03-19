@@ -24,3 +24,7 @@ The project uses 4 months of WESM data (Oct 2025 – Jan 2026). Since the IEMOP 
 - **Latest Market Data:** [IEMOP Market Data Dashboard](https://www.iemop.ph/market-data/)
 - **Technical Reference:** [WESM Price Determination Methodology (PDM)](https://www.wesm.ph/downloads/download/TWFya2V0IFJlcG9ydHM=/NTYw)
 - **Compliance & Rules:** [WESM Compliance Bulletin](https://www.wesm.ph/market-reports/compliance-bulletins/)
+
+
+### TO DO
+- add synthetic data with bigger spikes in feb
